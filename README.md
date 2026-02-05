@@ -43,6 +43,12 @@ Recruitment-Screening-Agent/
 ├── Modelfile                 # Custom Ollama model configuration
 └── README.md                 # This file
 ```
+## Demo
+
+
+https://github.com/user-attachments/assets/3743078e-c348-429d-b154-25010700e327
+
+
 
 ## 🚀 Quick Start
 
