@@ -1,5 +1,5 @@
 
-https://github.com/user-attachments/assets/39d6fd05-687c-483d-a8cf-ff85a2a7ee0d
+
 # 🤖 AI Recruitment Screening Agent
 
 A comprehensive AI-powered recruitment platform that automates the entire hiring workflow from initial resume screening to offer letter generation. Built with Flask, Ollama AI, and modern web technologies to process up to 50 resumes simultaneously and reduce time-to-hire by 60-70%.
