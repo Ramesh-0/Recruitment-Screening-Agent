@@ -1,0 +1,27 @@
+Job Title: Web Developer
+
+We are looking for a talented Web Developer to join our growing team. The successful candidate will have 3+ years of experience building modern web applications.
+
+Required Skills:
+- Proficiency in HTML5, CSS3, and JavaScript (ES6+)
+- Experience with React or Vue.js
+- Strong understanding of responsive design and mobile-first development
+- Knowledge of RESTful APIs and backend integration
+- Familiarity with Git version control
+- Experience with CSS preprocessors (SASS/LESS)
+
+Preferred Qualifications:
+- Experience with TypeScript
+- Knowledge of Node.js and Express
+- Understanding of web performance optimization
+- Experience with testing frameworks (Jest, Cypress)
+- Familiarity with Agile/Scrum methodologies
+
+Responsibilities:
+- Design and develop responsive web applications
+- Collaborate with designers and backend developers
+- Write clean, maintainable code
+- Optimize applications for maximum speed and scalability
+- Participate in code reviews and team meetings
+
+Education: Bachelor's degree in Computer Science or equivalent experience

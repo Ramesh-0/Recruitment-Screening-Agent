@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+temp.*
+*.log
+
+# Backend temporary files
+backend/temp.pdf
+backend/*.pdf
+
+# Environment variables
+.env
+.env.local
+
+# Test outputs (keep test case files)
+scripts/test_output/
+
+# Ollama models (optional - comment out if you want to track)
+# *.bin
+
+# Keep test case PDFs but ignore generated ones
+!test_cases/*.pdf

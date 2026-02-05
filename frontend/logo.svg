@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#6B7A3E"/>
+  
+  <!-- Document icon -->
+  <rect x="18" y="14" width="22" height="28" rx="2" fill="#F5F1E8"/>
+  
+  <!-- Document lines -->
+  <line x1="22" y1="20" x2="36" y2="20" stroke="#6B7A3E" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="22" y1="24" x2="36" y2="24" stroke="#6B7A3E" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="22" y1="28" x2="36" y2="28" stroke="#6B7A3E" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="22" y1="32" x2="32" y2="32" stroke="#6B7A3E" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Checkmark circle -->
+  <circle cx="42" cy="42" r="10" fill="#8B956A"/>
+  <path d="M38 42L40.5 44.5L46 39" stroke="#F5F1E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- AI sparkle -->
+  <path d="M44 18L45 16L46 18L48 19L46 20L45 22L44 20L42 19L44 18Z" fill="#9FAD7C"/>
+</svg>

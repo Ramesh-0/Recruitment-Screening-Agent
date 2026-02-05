@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>AI Recruitment Screening Agent</title>
+    <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-logo">
+                <img src="logo.svg" alt="AI Recruitment Logo" class="logo">
+                <div class="header-text">
+                    <h1>AI Recruitment Screening Agent</h1>
+                    <p class="subtitle">Analyze resumes and detect bias in job descriptions</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="upload-section">
+            <div class="card">
+                <h2>📄 Upload Resume</h2>
+                <div class="file-input-wrapper">
+                    <input type="file" id="resume" accept=".pdf" required>
+                    <label for="resume" id="file-label">
+                        <span class="file-icon">📎</span>
+                        <span id="file-name">Choose PDF file...</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💼 Job Description</h2>
+                <textarea 
+                    id="job_desc" 
+                    placeholder="Paste the job description here...&#10;&#10;Example:&#10;We are looking for a talented Python developer with experience in Flask, FastAPI, and AI technologies..."
+                    rows="8"
+                    required
+                ></textarea>
+            </div>
+        </div>
+
+        <button class="analyze-btn" onclick="submitData()">
+            <span id="btn-text">🔍 Analyze Resume</span>
+            <span id="loading" class="loading hidden">
+                <span class="spinner"></span> Analyzing...
+            </span>
+        </button>
+
+        <div id="results" class="results hidden">
+            <div class="card result-card">
+                <h2>📊 Skill Match Analysis</h2>
+                <div id="analysis-output" class="output-content"></div>
+            </div>
+
+            <div class="card result-card">
+                <h2>⚖️ Bias Detection Report</h2>
+                <div id="bias-output" class="output-content"></div>
+            </div>
+        </div>
+
+        <div id="error" class="error-message hidden"></div>
+    </div>
+
+    <footer>
+        <p>Powered by Ollama AI • Flask Backend • PDF Analysis</p>
+    </footer>
+
+    <script src="script.js?v=2.0"></script>
+</body>
+</html>
