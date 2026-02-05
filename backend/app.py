@@ -97,7 +97,8 @@ def batch_process():
     ranked = rank_candidates(candidates, {'job_desc': job_desc})
     
     return jsonify({
-        "total_candidates": len(ranked),
+        "total_processed": len(ranked),
+        "total_candidates": len(ranked),  # Backwards compatibility
         "ranked_candidates": ranked[:10],  # Top 10
         "summary": {
             "excellent": len([c for c in ranked if c['total_score'] >= 85]),

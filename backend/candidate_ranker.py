@@ -30,7 +30,8 @@ def rank_candidates(candidates, job_requirements):
         ranked.append({
             'rank': 0,  # Will be set after sorting
             'name': candidate.get('name', f'Candidate {idx+1}'),
-            'skill_match_score': skill_score,
+            'skill_score': skill_score,  # Frontend expects 'skill_score'
+            'skill_match_score': skill_score,  # Backwards compatibility
             'experience_score': experience_score,
             'total_score': round(total_score, 2),
             'analysis': candidate.get('analysis', ''),
