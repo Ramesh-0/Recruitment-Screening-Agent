@@ -338,6 +338,367 @@ footer {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Mode Tabs */
+.mode-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.mode-tab {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mode-tab:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-secondary);
+}
+
+.mode-tab.active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-color: var(--primary-dark);
+    box-shadow: var(--shadow);
+}
+
+.mode-content {
+    animation: fadeIn 0.4s ease;
+}
+
+/* Results Tabs */
+.results-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+}
+
+.result-tab {
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.result-tab:hover {
+    border-color: var(--secondary-color);
+    background: var(--bg-secondary);
+}
+
+.result-tab.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.result-tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+    grid-column: 1 / -1;
+}
+
+.result-tab-content.active {
+    display: block;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.bento-large {
+    grid-column: span 8;
+}
+
+.bento-small {
+    grid-column: span 4;
+}
+
+.stats-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.stat-item {
+    background: var(--bg-primary);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* Batch Processing */
+.info-text {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.batch-summary {
+    background: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.summary-stat {
+    text-align: center;
+    padding: 15px;
+    background: var(--bg-card);
+    border-radius: 8px;
+}
+
+.summary-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.summary-stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 5px;
+}
+
+.ranking-table {
+    overflow-x: auto;
+}
+
+.ranking-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.ranking-table th {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.ranking-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.ranking-table tr:hover {
+    background: var(--bg-secondary);
+}
+
+.rank-badge {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    color: white;
+}
+
+.rank-1 { background: #FFD700; color: #333; }
+.rank-2 { background: #C0C0C0; color: #333; }
+.rank-3 { background: #CD7F32; color: white; }
+.rank-other { background: var(--secondary-color); }
+
+.score-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.score-excellent { background: #DCFCE7; color: #166534; }
+.score-good { background: #DBEAFE; color: #1E40AF; }
+.score-moderate { background: #FEF3C7; color: #854D0E; }
+.score-poor { background: #FEE2E2; color: #991B1B; }
+
+.recommendation-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.rec-strong-hire { background: #DCFCE7; color: #166534; }
+.rec-hire { background: #DBEAFE; color: #1E40AF; }
+.rec-maybe { background: #FEF3C7; color: #854D0E; }
+.rec-no-hire { background: #FEE2E2; color: #991B1B; }
+
+/* Form Styling */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+    background: var(--bg-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+}
+
+/* Secondary Button */
+.secondary-btn {
+    padding: 10px 20px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.secondary-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Scheduled Interviews List */
+.scheduled-list {
+    margin-top: 15px;
+}
+
+.interview-item {
+    background: var(--bg-secondary);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.interview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.interview-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.interview-type {
+    padding: 4px 10px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.interview-details {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.cancel-btn {
+    padding: 6px 14px;
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #B34A44;
+}
+
+/* Offer Letter Styling */
+.offer-letter {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    font-family: Georgia, serif;
+    line-height: 1.8;
+    color: #333;
+    white-space: pre-wrap;
+}
+
+.success-card {
+    border-left: 4px solid #10B981;
+}
+
+.success-card h2 {
+    color: #10B981;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -371,5 +732,31 @@ footer {
     
     .card {
         padding: 20px;
+    }
+    
+    .mode-tabs {
+        flex-direction: column;
+    }
+    
+    .mode-tab {
+        min-width: auto;
+    }
+    
+    .bento-large,
+    .bento-small {
+        grid-column: span 12;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+    
+    .results-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
     }
 }

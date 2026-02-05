@@ -1,8 +1,5 @@
 flask
 flask-cors
-fastapi
-uvicorn
 pdfplumber
-spacy
-scikit-learn
 ollama
+requests

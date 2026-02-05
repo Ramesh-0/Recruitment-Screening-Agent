@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>AI Recruitment Screening Agent</title>
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 <body>
     <div class="container">
@@ -16,50 +16,273 @@
                 <img src="logo.svg" alt="AI Recruitment Logo" class="logo">
                 <div class="header-text">
                     <h1>AI Recruitment Screening Agent</h1>
-                    <p class="subtitle">Analyze resumes and detect bias in job descriptions</p>
+                    <p class="subtitle">Comprehensive AI-powered recruitment analysis & automation</p>
                 </div>
             </div>
         </header>
 
-        <div class="upload-section">
+        <!-- Mode Selection Tabs -->
+        <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('single')">
+                📄 Single Resume
+            </button>
+            <button class="mode-tab" onclick="switchMode('batch')">
+                📚 Batch Processing
+            </button>
+            <button class="mode-tab" onclick="switchMode('schedule')">
+                📅 Schedule Interview
+            </button>
+            <button class="mode-tab" onclick="switchMode('offer')">
+                📝 Generate Offer
+            </button>
+        </div>
+
+        <!-- Single Resume Mode -->
+        <div id="single-mode" class="mode-content">
+            <div class="upload-section">
+                <div class="card">
+                    <h2>📄 Upload Resume</h2>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="resume" accept=".pdf" required>
+                        <label for="resume" id="file-label">
+                            <span class="file-icon">📎</span>
+                            <span id="file-name">Choose PDF file...</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>💼 Job Description</h2>
+                    <textarea 
+                        id="job_desc" 
+                        placeholder="Paste the job description here...&#10;&#10;Example:&#10;We are looking for a talented Python developer with experience in Flask, FastAPI, and AI technologies..."
+                        rows="8"
+                        required
+                    ></textarea>
+                </div>
+            </div>
+
+            <button class="analyze-btn" onclick="submitData()">
+                <span id="btn-text">🔍 Analyze Resume</span>
+                <span id="loading" class="loading hidden">
+                    <span class="spinner"></span> Analyzing...
+                </span>
+            </button>
+
+            <div id="results" class="results hidden">
+                <!-- Results Tabs -->
+                <div class="results-tabs">
+                    <button class="result-tab active" onclick="switchResultTab('overview')">📊 Overview</button>
+                    <button class="result-tab" onclick="switchResultTab('skills')">💻 Skills</button>
+                    <button class="result-tab" onclick="switchResultTab('bias')">⚖️ Bias</button>
+                    <button class="result-tab" onclick="switchResultTab('culture')">🤝 Culture Fit</button>
+                    <button class="result-tab" onclick="switchResultTab('salary')">💰 Salary</button>
+                    <button class="result-tab" onclick="switchResultTab('questions')">❓ Questions</button>
+                </div>
+
+                <!-- Overview Tab -->
+                <div id="overview-tab" class="result-tab-content active">
+                    <div class="bento-grid">
+                        <div class="card bento-large">
+                            <h2>📊 Candidate Summary</h2>
+                            <div id="summary-output" class="output-content"></div>
+                        </div>
+                        <div class="card bento-small">
+                            <h2>🎯 Quick Stats</h2>
+                            <div id="stats-output" class="stats-grid"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Tab -->
+                <div id="skills-tab" class="result-tab-content">
+                    <div class="card">
+                        <h2>💻 Skill Match Analysis</h2>
+                        <div id="analysis-output" class="output-content"></div>
+                    </div>
+                </div>
+
+                <!-- Bias Tab -->
+                <div id="bias-tab" class="result-tab-content">
+                    <div class="card">
+                        <h2>⚖️ Bias Detection Report</h2>
+                        <div id="bias-output" class="output-content"></div>
+                    </div>
+                </div>
+
+                <!-- Culture Fit Tab -->
+                <div id="culture-tab" class="result-tab-content">
+                    <div class="card">
+                        <h2>🤝 Culture Fit Assessment</h2>
+                        <div id="culture-output" class="output-content"></div>
+                    </div>
+                </div>
+
+                <!-- Salary Tab -->
+                <div id="salary-tab" class="result-tab-content">
+                    <div class="card">
+                        <h2>💰 Salary Benchmark</h2>
+                        <div id="salary-output" class="output-content"></div>
+                    </div>
+                </div>
+
+                <!-- Questions Tab -->
+                <div id="questions-tab" class="result-tab-content">
+                    <div class="card">
+                        <h2>❓ Interview Questions</h2>
+                        <div id="questions-output" class="output-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Batch Processing Mode -->
+        <div id="batch-mode" class="mode-content hidden">
             <div class="card">
-                <h2>📄 Upload Resume</h2>
+                <h2>📚 Batch Resume Processing</h2>
+                <p class="info-text">Upload up to 50 resumes for automated ranking and analysis</p>
+                
                 <div class="file-input-wrapper">
-                    <input type="file" id="resume" accept=".pdf" required>
-                    <label for="resume" id="file-label">
+                    <input type="file" id="batch-resumes" accept=".pdf" multiple required>
+                    <label for="batch-resumes" id="batch-file-label">
                         <span class="file-icon">📎</span>
-                        <span id="file-name">Choose PDF file...</span>
+                        <span id="batch-file-name">Choose PDF files (up to 50)...</span>
                     </label>
+                </div>
+
+                <textarea 
+                    id="batch-job-desc" 
+                    placeholder="Paste the job description here..."
+                    rows="6"
+                    required
+                ></textarea>
+
+                <button class="analyze-btn" onclick="submitBatchData()">
+                    <span id="batch-btn-text">🔍 Process Batch</span>
+                    <span id="batch-loading" class="loading hidden">
+                        <span class="spinner"></span> Processing...
+                    </span>
+                </button>
+            </div>
+
+            <div id="batch-results" class="hidden">
+                <div class="card">
+                    <h2>🏆 Top Candidates</h2>
+                    <div id="batch-summary" class="batch-summary"></div>
+                    <div id="batch-ranking" class="ranking-table"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Interview Mode -->
+        <div id="schedule-mode" class="mode-content hidden">
+            <div class="card">
+                <h2>📅 Schedule Interview</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Candidate Name</label>
+                        <input type="text" id="candidate-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Candidate Email</label>
+                        <input type="email" id="candidate-email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Interview Date</label>
+                        <input type="date" id="interview-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Interview Time</label>
+                        <input type="time" id="interview-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Interview Type</label>
+                        <select id="interview-type">
+                            <option value="Technical">Technical</option>
+                            <option value="Behavioral">Behavioral</option>
+                            <option value="Cultural Fit">Cultural Fit</option>
+                            <option value="Final Round">Final Round</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration (minutes)</label>
+                        <input type="number" id="interview-duration" value="60" min="15" max="180">
+                    </div>
+                </div>
+
+                <button class="analyze-btn" onclick="scheduleInterview()">
+                    📅 Schedule Interview
+                </button>
+            </div>
+
+            <div id="schedule-results" class="hidden">
+                <div class="card success-card">
+                    <h2>✅ Interview Scheduled</h2>
+                    <div id="schedule-output" class="output-content"></div>
                 </div>
             </div>
 
             <div class="card">
-                <h2>💼 Job Description</h2>
-                <textarea 
-                    id="job_desc" 
-                    placeholder="Paste the job description here...&#10;&#10;Example:&#10;We are looking for a talented Python developer with experience in Flask, FastAPI, and AI technologies..."
-                    rows="8"
-                    required
-                ></textarea>
+                <h2>📋 Scheduled Interviews</h2>
+                <button class="secondary-btn" onclick="loadScheduledInterviews()">
+                    🔄 Refresh List
+                </button>
+                <div id="scheduled-list" class="scheduled-list"></div>
             </div>
         </div>
 
-        <button class="analyze-btn" onclick="submitData()">
-            <span id="btn-text">🔍 Analyze Resume</span>
-            <span id="loading" class="loading hidden">
-                <span class="spinner"></span> Analyzing...
-            </span>
-        </button>
+        <!-- Offer Letter Mode -->
+        <div id="offer-mode" class="mode-content hidden">
+            <div class="card">
+                <h2>📝 Generate Offer Letter</h2>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Candidate Name</label>
+                        <input type="text" id="offer-candidate-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Candidate Email</label>
+                        <input type="email" id="offer-candidate-email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Job Title</label>
+                        <input type="text" id="offer-job-title" placeholder="Senior Software Engineer" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" id="offer-department" placeholder="Engineering" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date" id="offer-start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Salary ($)</label>
+                        <input type="number" id="offer-salary" placeholder="150000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Signing Bonus ($)</label>
+                        <input type="number" id="offer-signing-bonus" placeholder="10000" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Equity Shares</label>
+                        <input type="number" id="offer-equity-shares" placeholder="5000" value="0">
+                    </div>
+                </div>
 
-        <div id="results" class="results hidden">
-            <div class="card result-card">
-                <h2>📊 Skill Match Analysis</h2>
-                <div id="analysis-output" class="output-content"></div>
+                <button class="analyze-btn" onclick="generateOffer()">
+                    📝 Generate Offer Letter
+                </button>
             </div>
 
-            <div class="card result-card">
-                <h2>⚖️ Bias Detection Report</h2>
-                <div id="bias-output" class="output-content"></div>
+            <div id="offer-results" class="hidden">
+                <div class="card">
+                    <h2>📄 Offer Letter</h2>
+                    <div id="offer-output" class="offer-letter"></div>
+                    <button class="secondary-btn" onclick="copyOfferLetter()">
+                        📋 Copy to Clipboard
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -67,9 +290,9 @@
     </div>
 
     <footer>
-        <p>Powered by Ollama AI • Flask Backend • PDF Analysis</p>
+        <p>Powered by Ollama AI • Flask Backend • Comprehensive Recruitment Suite</p>
     </footer>
 
-    <script src="script.js?v=2.0"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
