@@ -204,11 +204,6 @@ ollama
 requests
 ```
 
-**Development** (requirements-dev.txt):
-```
-reportlab  # Test resume generation
-```
-
 ---
 
 ## 🎯 Feature Completeness

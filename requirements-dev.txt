@@ -1,8 +1,0 @@
-# Development and Testing Dependencies
-# Install with: pip install -r requirements-dev.txt
-
-# Include production requirements
--r backend/requirements.txt
-
-# Testing dependencies
-reportlab  # For generating test resume PDFs

@@ -65,7 +65,6 @@ Recruitment-Screening-Agent/
 ├── .gitignore                 # Git ignore rules
 ├── LICENSE                    # MIT License
 ├── Modelfile                  # Custom Ollama model configuration
-├── requirements-dev.txt       # Development dependencies
 └── README.md                  # This file
 ```
 ## Demo
@@ -101,7 +100,6 @@ https://github.com/user-attachments/assets/3743078e-c348-429d-b154-25010700e327
 3. **Install dependencies**
    ```bash
    pip install -r backend/requirements.txt
-   pip install -r requirements-dev.txt  # Optional: for test resume generation
    ```
 
 4. **Create custom Ollama model**
@@ -428,7 +426,6 @@ Professional beige and olive green palette:
 
 ## 📦 Dependencies
 
-### Production Dependencies
 See [backend/requirements.txt](backend/requirements.txt):
 
 ```txt
@@ -437,13 +434,6 @@ flask-cors>=4.0.0
 pdfplumber>=0.10.0
 ollama>=0.1.0
 requests>=2.31.0
-```
-
-### Development Dependencies
-See [requirements-dev.txt](requirements-dev.txt):
-
-```txt
-reportlab>=4.0.0  # Test resume generation
 ```
 
 ## 🔍 Troubleshooting
